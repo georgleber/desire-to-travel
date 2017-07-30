@@ -15,13 +15,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 
-		<script src="<#if (content.rootpath)??>${content.rootpath}<#else></#if>js/jquery.min.js"></script>
-		<script src="<#if (content.rootpath)??>${content.rootpath}<#else></#if>js/skel.min.js"></script>
-		<script src="<#if (content.rootpath)??>${content.rootpath}<#else></#if>js/util.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js" integrity="sha256-0JaDbGZRXlzkFbV8Xi8ZhH/zZ6QQM0Y3dCkYZ7JYq34=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js" integrity="sha256-3e+NvOq+D/yeJy1qrWpYkEUr6SlOCL5mHpc2nZfX74E=" crossorigin="anonymous"></script>
 		<script src="<#if (content.rootpath)??>${content.rootpath}<#else></#if>js/main.js"></script>
-		<script src="<#if (content.rootpath)??>${content.rootpath}<#else></#if>js/backToTop.js"></script>
-		<script src="<#if (content.rootpath)??>${content.rootpath}<#else></#if>js/highlight.pack.js"></script>
-		<script src="<#if (content.rootpath)??>${content.rootpath}<#else></#if>js/readingTime.js"></script>
 
 		<#if (config.site_disqus_shortname?has_content)>
 			<script id="dsq-count-scr" src="//${config.site_disqus_shortname}.disqus.com/count.js" async></script>
@@ -29,9 +26,9 @@
 		<#if (config.site_google_trackingid?has_content)>
 			<#include "commons/google-analytics.ftl" />
 		</#if>
-		<!-- This is called by default since this theme uses highlight.js -->
-		<script>hljs.initHighlightingOnLoad();</script>
-		<!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
-
+		<#if (config.site_flickr_apikey?has_content && config.site_flickr_userid?has_content)>
+			<#include "commons/flickr.ftl">
+		</#if>
+		<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script><![endif]-->
   </body>
 </html>
