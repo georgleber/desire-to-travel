@@ -31,7 +31,7 @@
   		var srcM = Handlebars.escapeExpression(this.url_m);
 
   		return new Handlebars.SafeString(
-  			"<a href='" + srcM + "' data-lightbox='sevilla' data-title='" + title + "'><img src='" + src + "' class='img-responsive' alt='" + title + "' title='" + title + "' data-srcm='" + srcM + "'/></a>"
+  			"<img src='" + src + "' class='img-responsive' alt='" + title + "' title='" + title + "' data-srcm='" + srcM + "'/>"
   		);
   	});
 
