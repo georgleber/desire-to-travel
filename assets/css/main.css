@@ -1,6 +1,3 @@
-/*@import url(font-awesome.min.css);*/
-/*@import url("//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900");*/
-
 /*
 	Future Imperfect by HTML5 UP
 	html5up.net | @n33co
@@ -3030,6 +3027,31 @@
 					font-weight: 400;
 					letter-spacing: 0.25em;
 					text-transform: uppercase;
+				}
+
+				#header .links ul li ul.dropdown-menu {
+					display: none;
+					position: absolute;
+					margin-left: -1em;
+					background-color: #ffffff;
+					min-width: 160px;
+				}
+
+				#header .links ul li a:hover + ul.dropdown-menu, #header .links ul li ul.dropdown-menu:hover {
+					display: block;
+				}
+
+				#header .links ul li ul.dropdown-menu li:first-child {
+					margin-top: 22px;
+    			border-top: 1px solid rgba(160, 160, 160, 0.3);
+				}
+
+				#header .links ul li ul.dropdown-menu li {
+					display:block;
+    			border: 1px solid rgba(160, 160, 160, 0.3);
+					border-top:0;
+					padding: 15px 20px;
+					margin-left: 0;
 				}
 
 		#header .main {
