@@ -26,7 +26,7 @@
   <section id="recent-posts">
     <ul class="posts">
       <header>
-        <h3>Recent Posts</h3>
+        <h3>Aktuelle Posts</h3>
       </header>
   		<#list posts as sideBarPost1>
         <#if (sideBarPost1?counter > config.sidebar_postAmount?number) ><#break/></#if>
