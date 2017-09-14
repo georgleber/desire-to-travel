@@ -5,7 +5,7 @@
 	<div id="main">
 		<ul class="posts">
       <header>
-          <h1>Archive</h1>
+          <h1>Archiv</h1>
       </header>
       <#list published_posts as post>
 				<#if (last_month)??>

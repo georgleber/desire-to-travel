@@ -7,7 +7,7 @@
       <#list config.site_menus_main as menuItem1>
         <#if (config.site_menus_main_showTagsDropdown?boolean)?? == true && menuItem1 == 'tags'>
           <li>
-	          <a href="<#if (config['site_menus_main_' + menuItem1 + '_url'] != "/")>${content.rootpath}${config['site_menus_main_' + menuItem1 + '_url']}<#else>${config.site_host}</#if>">
+	          <a href="javascript:void(0)">
               <i class="${config['site_menus_main_' + menuItem1 + '_icon']}">&nbsp;</i>${config['site_menus_main_' + menuItem1 + '_label']}
 	          </a>
 	          <ul class="dropdown-menu">
