@@ -1,10 +1,6 @@
 <!-- Header -->
 <header id="header">
-  <#if (content == null)??>
     <h1><a href="${config.site_host}">${config.site_title}</i></a></h1>
-  <#else>
-    <h2><a href="${config.site_host}">${config.site_title}</i></a></h2>
-  </#if>
 
   <nav class="links">
     <ul>
@@ -67,7 +63,7 @@
       <ul class="links">
         <#list config.site_menus_main as menuItem>
           <li>
-            <a href="<#if (config['site_menus_main_' + menuItem + '_url'] != "/")> ${content.rootpath}${config['site_menus_main_' + menuItem + '_url']}<#else> ${config.site_host}</#if>">
+            <a href="${config.site_host}">
               <i class="${config['site_menus_main_' + menuItem + '_icon']}">&nbsp;</i>${config['site_menus_main_' + menuItem + '_label']}
             </a>
           </li>
@@ -79,7 +75,7 @@
     <section>
       <ul class="links">
         <header>
-          <h3>Recent Posts</h3>
+          <h3>Aktuelle Posts</h3>
         </header>
         <#list posts as menuPost1>
           <#if (menuPost1?counter > config.sidebar_postAmount?number) ><#break/></#if>
