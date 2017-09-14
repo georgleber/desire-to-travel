@@ -12,7 +12,7 @@
 	          </a>
 	          <ul class="dropdown-menu">
 				      <#list alltags as tag>
-							  <li><a class="plain" href="/${config.tag_path}/${tag}">${tag}</a></li>
+							  <li><a class="plain" href="/${config.tag_path}/${tag}.html">${tag}</a></li>
 							</#list>
 			      </ul>
       	  </li>
