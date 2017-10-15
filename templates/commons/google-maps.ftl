@@ -18,6 +18,7 @@
         });
         directionsDisplay.setMap(map);
 
+
         if (locations.length > 1) {
             displayRoute();
         } else if (locations.length > 0) {
@@ -26,19 +27,44 @@
     }
 
     function displayRoute() {
-        var wayPoints = [];
-        for (var i = 1, cnt = locations.length - 1; i < cnt; i++) {
-            wayPoints.push({
-                location: new google.maps.LatLng(locations[i].lat, locations[i].lng),
-                stopover: true
-            });
+        if (locations[locations.length - 1])
+
+        var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(locations[locations.length - 1].lat, locations[locations.length - 1].lng),
+          new google.maps.LatLng(locations[0].lat, locations[0].lng));
+        map.fitBounds(bounds);
+
+        var lastMarker = null;
+        var currentMarker = null;
+        for (var i = 0, cnt = locations.length; i < cnt; i++) {
+            var currentMarker = new google.maps.Marker({
+                map: map,
+                position: {lat: locations[i].lat, lng: locations[i].lng}
+            });
+
+            if (lastMarker != null) {                        
+                var geodesicPoly = new google.maps.Polyline({
+                    strokeColor: '#CC0099',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 3,
+                    geodesic: true,
+                    map: map
+                });
+
+                var path = [lastMarker.getPosition(), currentMarker.getPosition()];
+                geodesicPoly.setPath(path);
+
+                console.log("setting path from " + lastMarker.getPosition() + " to " + currentMarker.getPosition());
+            }
+
+            lastMarker = currentMarker;
         }
 
+        /*
         directionsService.route({
             origin: new google.maps.LatLng(locations[0].lat, locations[0].lng),
             destination: new google.maps.LatLng(locations[locations.length - 1].lat, locations[locations.length - 1].lng),
             waypoints: wayPoints,
-            travelMode: google.maps.TravelMode.DRIVING,
+            travelMode: google.maps.TravelMode.TRANSIT,
             unitSystem: google.maps.UnitSystem.METRIC
         }, function (response, status) {
             if (status === 'OK') {
@@ -47,9 +73,10 @@
                 alert('Could not display directions due to: ' + status);
             }
         });
+        */
     }
 
-    function displayMarker() {
+    function displayMarker() {
         marker = new google.maps.Marker({
             map: map,
             position: new google.maps.LatLng(locations[0].lat, locations[0].lng),
