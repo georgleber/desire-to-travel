@@ -85,4 +85,15 @@
         </#list>
       </ul>
     </section>
+
+    <section>
+      <ul class="icons">
+        <#if (config.sidebar_social_show?boolean == true)>
+          <#include "commons/social.ftl">
+        </#if>
+        <#if (config.render_feed?boolean == true) >
+          <li><a href="${config.feed_file}" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+        </#if>
+      </ul>
+    </section>
 </section>
