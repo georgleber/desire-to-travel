@@ -1,7 +1,7 @@
 <article class="post">
   <#include "header.ftl">
 
-  <#if (config.site_google_mapsid?has_content && content?? && content.locations??)>
+  <#if (config.site_google_mapsid?has_content && content?? && content.mapsconfig??)>
     <div class="ribbon-container">
       <a href="#map" class="ribbon">
         <i class="fa fa-map-marker"></i> Google Maps
@@ -15,10 +15,10 @@
     ${post.body}
   </div>
 
-  <#if (config.site_google_mapsid?has_content && content?? && content.locations??)>
+  <#if (config.site_google_mapsid?has_content && content?? && content.mapsconfig??)>
     <#include "../commons/google-maps.ftl">
   </#if>
-  
+
   <footer>
   	<#include "../commons/footer-tags.ftl">
   </footer>

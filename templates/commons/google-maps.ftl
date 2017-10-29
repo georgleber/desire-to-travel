@@ -1,7 +1,7 @@
 <div id="map" style="height: 300px"></div>
 
 <script>
-    var locations = JSON.parse('${content.locations}');
+    var mapsConfig = JSON.parse(${content.mapsconfig});
     var directionsService = null;
     var directionsDisplay = null;
     var map = null;
@@ -18,17 +18,17 @@
         });
         directionsDisplay.setMap(map);
 
-
-        if (locations.length > 1) {
-            displayRoute();
-        } else if (locations.length > 0) {
-            displayMarker();
-        }
+        var locations = mapsConfig.locations;
+        if (mapsConfig.locations.length > 1 && mapsConfig.type == 'local') {
+            displayRoute(locations);
+        } else if (mapsConfig.locations.length > 1 && mapsConfig.type == 'global') {
+            displayTrack(locations);
+        } else {
+            displayMarker(locations);
+        }
     }
 
-    function displayRoute() {
-        if (locations[locations.length - 1])
-
+    function displayTrack(locations) {
         var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(locations[locations.length - 1].lat, locations[locations.length - 1].lng),
           new google.maps.LatLng(locations[0].lat, locations[0].lng));
         map.fitBounds(bounds);
@@ -41,7 +41,7 @@
                 position: {lat: locations[i].lat, lng: locations[i].lng}
             });
 
-            if (lastMarker != null) {                        
+            if (lastMarker != null) {
                 var geodesicPoly = new google.maps.Polyline({
                     strokeColor: '#CC0099',
                     strokeOpacity: 1.0,
@@ -53,30 +53,44 @@
                 var path = [lastMarker.getPosition(), currentMarker.getPosition()];
                 geodesicPoly.setPath(path);
 
-                console.log("setting path from " + lastMarker.getPosition() + " to " + currentMarker.getPosition());
+                if (window.console) {
+                  console.log("setting path from " + lastMarker.getPosition() + " to " + currentMarker.getPosition());
+                }
             }
 
             lastMarker = currentMarker;
         }
+    }
 
-        /*
+    function displayRoute(locations) {
+        var wayPoints = [];
+        for (var i = 1, cnt = locations.length - 1; i < cnt; i++) {
+            wayPoints.push({
+                location: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+                stopover: true
+            });
+        }
+
         directionsService.route({
             origin: new google.maps.LatLng(locations[0].lat, locations[0].lng),
             destination: new google.maps.LatLng(locations[locations.length - 1].lat, locations[locations.length - 1].lng),
             waypoints: wayPoints,
-            travelMode: google.maps.TravelMode.TRANSIT,
+            travelMode: google.maps.TravelMode.DRIVING,
             unitSystem: google.maps.UnitSystem.METRIC
         }, function (response, status) {
             if (status === 'OK') {
                 directionsDisplay.setDirections(response);
             } else {
-                alert('Could not display directions due to: ' + status);
+                if (window.console) {
+                    console.log('Could not display directions due to: ' + status);
+                }
             }
         });
-        */
     }
 
-    function displayMarker() {
+    function displayMarker(locations) {
+        map.setCenter(new google.maps.LatLng(locations[0].lat, locations[0].lng));
+
         marker = new google.maps.Marker({
             map: map,
             position: new google.maps.LatLng(locations[0].lat, locations[0].lng),
@@ -84,20 +98,18 @@
             animation: google.maps.Animation.DROP
         });
 
-        var offset = 0.02;
+        var offset = 0.02;
+        var bounds = new google.maps.LatLngBounds();
         var newUpperBounds = new google.maps.LatLng({
             lat: marker.getPosition().lat() + offset,
             lng: marker.getPosition().lng() + offset
         });
-
-        var bounds = new google.maps.LatLngBounds();
         bounds.extend(newUpperBounds);
         var newLowerBounds = new google.maps.LatLng({
             lat: marker.getPosition().lat() - offset,
             lng: marker.getPosition().lng() - offset
         });
         bounds.extend(newLowerBounds);
-
         map.fitBounds(bounds);
     }
 </script>
