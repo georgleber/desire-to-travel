@@ -3,9 +3,9 @@
 <#include "menu.ftl">
 
 <div id="main">
-	<h1>Tag: ${tag}</h1>
+	<h1>${tag}</h1>
 
-  <#list tag_posts as post>
+  <#list tag_posts?reverse as post>
   	<#include "post/content-list.ftl">
   </#list>
 </div>
