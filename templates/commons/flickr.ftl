@@ -51,11 +51,11 @@
   	});
 
   	$(document).on('click', '.gh-gallery-thumbs li img', function() {
-      $('.gh-gallery-thumbs li img.active').removeClass('active');
+      $(this).parent().siblings().find('img.active').removeClass('active');
       $(this).addClass('active');
 
   		var srcM = $(this).data('srcm');
-  		$('.gh-gallery-preview img').attr('src', srcM);
+  		$(this).parent().parent().siblings('.gh-gallery-preview').find('img').attr('src', srcM);
   	});
   });
 </script>
