@@ -13,11 +13,13 @@
     },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
         var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : (container.nullContext || {});
 
-      return "<div class=\"gh-gallery\">\r\n	<div class=\"gh-gallery-preview\">\r\n		<img src=\""
+      return "<div class=\"gh-gallery\">\r\n	<div class=\"gh-gallery-preview\">\r\n		<a data-featherlight=\"image\" href=\""
+        + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPhoto : depth0)) != null ? "https://farm" + stack1.farm + ".staticflickr.com/" + stack1.server + "/" + stack1.id + "_" + stack1.secret + "_b.jpg" : stack1), depth0))
+        + "\"><img src=\""
         + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPhoto : depth0)) != null ? stack1.url_m : stack1), depth0))
         + "\" alt=\""
         + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPhoto : depth0)) != null ? stack1.title : stack1), depth0))
-        + "\"/>\r\n	</div>\r\n	<ul class=\"gh-gallery-thumbs\">\r\n"
+        + "\"/></a>\r\n	</div>\r\n	<ul class=\"gh-gallery-thumbs\">\r\n"
         + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.photos : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
         + "	</ul>\r\n </div>\r\n <div class=\"gh-gallery-title\">\r\n		"
         + alias2(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(alias3,{"name":"title","hash":{},"data":data}) : helper)))
@@ -29,9 +31,14 @@
   		var src = Handlebars.escapeExpression(this.url_sq);
   		var title = Handlebars.escapeExpression(this.title);
   		var srcM = Handlebars.escapeExpression(this.url_m);
+      var id = Handlebars.escapeExpression(this.id);
+      var secret = Handlebars.escapeExpression(this.secret);
+      var server = Handlebars.escapeExpression(this.server);
+      var farm = Handlebars.escapeExpression(this.farm);
+      var srcB = "https://farm" + farm + ".staticflickr.com/" + server + "/" + id + "_" + secret + "_b.jpg";
 
   		return new Handlebars.SafeString(
-  			"<img src='" + src + "' class='img-responsive' alt='" + title + "' title='" + title + "' data-srcm='" + srcM + "'/>"
+  			"<img src='" + src + "' class='img-responsive' alt='" + title + "' title='" + title + "' data-srcm='" + srcM + "' data-srcb='" + srcB + "'/>"
   		);
   	});
 
@@ -39,7 +46,7 @@
   		var photosetId = $(this).data('photoset');
 
   		$.ajax({
-  			url: "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${config.site_flickr_apikey}&photoset_id=" + photosetId + "&user_id=${config.site_flickr_userid}&extras=url_sq%2C+url_m&format=json&nojsoncallback=1",
+  			url: "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${config.site_flickr_apikey}&photoset_id=" + photosetId + "&user_id=${config.site_flickr_userid}&extras=url_sq%2C+url_m%2C+url_o&format=json&nojsoncallback=1",
   		}).done(function(result) {
   			var template = Handlebars.templates.todo;
   			var firstPhoto = result.photoset.photo && result.photoset.photo.length > 0 ? result.photoset.photo[0] : null;
@@ -55,7 +62,10 @@
       $(this).addClass('active');
 
   		var srcM = $(this).data('srcm');
-  		$(this).parent().parent().siblings('.gh-gallery-preview').find('img').attr('src', srcM);
+  		var srcB = $(this).data('srcb');
+  		var preview = $(this).parent().parent().siblings('.gh-gallery-preview');
+      preview.find('img').attr('src', srcM);
+      preview.find('a').attr('href', srcB);
   	});
   });
 </script>

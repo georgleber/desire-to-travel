@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="/css/google-font.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.7.9/featherlight.min.css" integrity="sha256-lpBLysR8pdmLZklwWA6kc+HmprKFyH6Ms8qi8ZKOchk=" crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/add-on.css" />
 
