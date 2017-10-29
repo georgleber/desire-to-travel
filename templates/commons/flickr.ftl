@@ -19,9 +19,9 @@
         + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPhoto : depth0)) != null ? stack1.title : stack1), depth0))
         + "\"/>\r\n	</div>\r\n	<ul class=\"gh-gallery-thumbs\">\r\n"
         + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.photos : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-        + "	</ul>\r\n	<div class=\"gh-gallery-title\">\r\n		"
+        + "	</ul>\r\n </div>\r\n <div class=\"gh-gallery-title\">\r\n		"
         + alias2(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(alias3,{"name":"title","hash":{},"data":data}) : helper)))
-        + "\r\n	</div>\r\n</div>";
+        + "\r\n	</div>";
     },"useData":true});
     })();
 
