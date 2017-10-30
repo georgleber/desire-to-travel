@@ -392,9 +392,8 @@ ul.pagination .button {
   position: absolute;
   right: -16px;
   z-index: 999;
-  top: 250px;
+  top: 10px;
 }
-
 
 .ribbon-container:before {
   content: "";
@@ -404,10 +403,10 @@ ul.pagination .button {
   position: absolute;
   top: 3px;
   left: 0;
-  border-top: 29px solid rgba(0, 0, 0, .3);
-  border-bottom: 29px solid rgba(0, 0, 0, .3);
-  border-right: 29px solid rgba(0, 0, 0, .3);
-  border-left: 29px solid transparent;
+  border-top: 31px solid rgba(0, 0, 0, .3);
+  border-bottom: 17px solid rgba(0, 0, 0, .3);
+  border-right: 5px solid rgba(0, 0, 0, .3);
+  border-left: 34px solid transparent;
 }
 
 .ribbon-container:after {
@@ -417,17 +416,17 @@ ul.pagination .button {
   display: block;
   position: absolute;
   bottom: -3px;
-  left: 58px;
-  right: 3px;
+  left: 39px;
+  right: 15px;
 }
 
 .ribbon-container a {
   display: block;
-  padding: 13px;
+  padding: 8px;
   position: relative;
   background: #0089d0;
   overflow: visible;
-  height: 58px;
+  height: 48px;
   margin-left: 29px;
   color: #fff;
   text-decoration: none;
@@ -452,11 +451,11 @@ ul.pagination .button {
   display: block;
   position: absolute;
   top: 0;
-  left: -29px;
-  border-top: 29px solid #0089d0;
-  border-bottom: 29px solid #0089d0;
-  border-right: 29px solid transparent;
-  border-left: 29px solid transparent;
+  left: -26px;
+  border-top: 24px solid #0089d0;
+  border-bottom: 24px solid #0089d0;
+  border-right: 26px solid transparent;
+  border-left: 26px solid transparent;
 }
 
 .ribbon-container a:hover {
@@ -465,14 +464,16 @@ ul.pagination .button {
 }
 
 .ribbon-container a:hover:before {
-  border-top: 29px solid #009ff1;
-  border-bottom: 29px solid #009ff1;
+  border-top: 24px solid #009ff1;
+  border-bottom: 24px solid #009ff1;
 }
-
 
 @media screen and (max-width: 980px) {
   .ribbon-container {
-    top: 275px;
+    right: 0;
+  }
+
+  .ribbon-container:after {
     right: 0;
   }
 
