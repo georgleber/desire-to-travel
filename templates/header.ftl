@@ -20,10 +20,6 @@
 
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="/img/favicon/favicon.png">
-
-    <script type='text/javascript'>
-      function loadCSS(e,t,n){"use strict";var i=window.document.createElement("link");var o=t||window.document.getElementsByTagName("script")[0];i.rel="stylesheet";i.media="only x";i.href=e;o.parentNode.insertBefore(i,o);setTimeout(function(){i.media=n||"all"})}loadCSS('/css/fontawesome-4.7.2.min.css');
-    </script>
   </head>
   <body>
     <!-- Wrapper -->
