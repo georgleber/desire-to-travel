@@ -3939,6 +3939,7 @@ ul.pagination .button {
 	color: #aaaaaa;
 	text-decoration: none;
 	border-bottom: 0;
+	font-size: 0.8em;
 }
 
 .fullscreen a:hover {
