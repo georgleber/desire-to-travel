@@ -739,25 +739,42 @@ $(function() {
 
 	//hide or show the "back to top" link
 	$(window).scroll(function(){
-			if ($(this).scrollTop() > offset) {
-					$backToTop.fadeIn();
-					$shareNav.fadeIn();
-			} else {
-					$backToTop.fadeOut();
-					$backToTop.removeClass('btt-fade-out');
-					$shareNav.fadeOut();
-			}
+		if ($(this).scrollTop() > offset) {
+			$backToTop.fadeIn();
+			$shareNav.fadeIn();
+		} else {
+			$backToTop.fadeOut();
+			$backToTop.removeClass('btt-fade-out');
+			$shareNav.fadeOut();
+		}
 
-			if($(this).scrollTop() > offset_opacity) {
+		if($(this).scrollTop() > offset_opacity) {
 			$backToTop.addClass('btt-fade-out');
 		}
 	});
 
 	//smooth scroll to top
 	$backToTop.on('click', function(event){
-			event.preventDefault();
-			$('body,html').animate({
-					scrollTop: 0 ,
-		 	}, scroll_top_duration);
+		event.preventDefault();
+		$('body,html').animate({
+			scrollTop: 0
+		}, scroll_top_duration);
 	});
+});
+
+$(function() {
+	var loadDeferredStyles = function() {
+		var addStylesNode = document.getElementById("deferred-styles");
+		var replacement = document.createElement("div");
+		replacement.innerHTML = addStylesNode.textContent;
+		document.body.appendChild(replacement)
+		addStylesNode.parentElement.removeChild(addStylesNode);
+	};
+
+	var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+	if (raf) {
+		raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+	} else {
+		window.addEventListener('load', loadDeferredStyles);
+	}
 });
