@@ -1,4 +1,10 @@
 <header>
+  <#if (showFullscreen == true)??>
+    <div class="fullscreen">
+      <a href="?fullscreen=true" title="Vollbild"><i class="fa fa-expand"></i></a>
+    </div>
+  </#if>
+
   <div class="title">
     <#if (titleH1 == true)??>
       <h1><a href="${content.rootpath}${post.noExtensionUri!post.uri}">${post.title}</a></h1>

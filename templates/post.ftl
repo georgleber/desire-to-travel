@@ -4,6 +4,7 @@
 <div id="main">
 	<#assign post = content />
 	<#assign titleH1 = true />
+	<#assign showFullscreen = true />
 	<#if (post??) >
 		<#include "post/content-single.ftl">
 	</#if>
