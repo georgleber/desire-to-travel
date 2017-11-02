@@ -19,10 +19,11 @@
         directionsDisplay.setMap(map);
 
         var locations = mapsConfig.locations;
-        if (mapsConfig.locations.length > 1 && mapsConfig.type == 'local') {
-            displayRoute(locations);
-        } else if (mapsConfig.locations.length > 1 && mapsConfig.type == 'global') {
-            displayTrack(locations);
+        var type =  mapsConfig.type;
+        if (mapsConfig.locations.length > 1 && type === 'transit') {
+            displayTrack(locations);
+        } else if (mapsConfig.locations.length > 1 && type !== 'transit') {
+            displayRoute(locations, type);
         } else {
             displayMarker(locations);
         }
@@ -62,7 +63,7 @@
         }
     }
 
-    function displayRoute(locations) {
+    function displayRoute(locations, type) {
         var wayPoints = [];
         for (var i = 1, cnt = locations.length - 1; i < cnt; i++) {
             wayPoints.push({
@@ -71,11 +72,18 @@
             });
         }
 
+        var travelMode = null;
+        if (type == 'driving') {
+          travelMode = google.maps.TravelMode.DRIVING;
+        } else if (type == 'walking') {
+          travelMode = google.maps.TravelMode.WALKING;
+        }
+
         directionsService.route({
             origin: new google.maps.LatLng(locations[0].lat, locations[0].lng),
             destination: new google.maps.LatLng(locations[locations.length - 1].lat, locations[locations.length - 1].lng),
             waypoints: wayPoints,
-            travelMode: google.maps.TravelMode.DRIVING,
+            travelMode: travelMode,
             unitSystem: google.maps.UnitSystem.METRIC
         }, function (response, status) {
             if (status === 'OK') {
