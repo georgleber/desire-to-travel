@@ -28,7 +28,7 @@
       <header>
         <h3>Aktuelle Posts</h3>
       </header>
-  		<#list posts as sideBarPost1>
+  	  <#list posts as sideBarPost1>
         <#if (sideBarPost1?counter > config.sidebar_postAmount?number) ><#break/></#if>
         <li>
           <article>
@@ -40,7 +40,7 @@
         </li>
       </#list>
 
-			<#if (published_posts?size > config.sidebar_postAmount?number) >
+	  <#if (published_posts?size > config.sidebar_postAmount?number) >
         <li>
           <ul class="actions">
             <li><a href="${content.rootpath}${config.sidebar_viewMorePostLink?has_content?then(config.sidebar_viewMorePostLink,config.archive_path)}" class="button">View more posts</a></li>

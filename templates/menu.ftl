@@ -7,23 +7,23 @@
       <#list config.site_menus_main as menuItem1>
         <#if (config.site_menus_main_showTagsDropdown?boolean)?? == true && menuItem1 == 'tags'>
           <li>
-	          <a href="javascript:void(0)">
+			<a href="javascript:void(0)">
               <i class="${config['site_menus_main_' + menuItem1 + '_icon']}">&nbsp;</i>${config['site_menus_main_' + menuItem1 + '_label']}
-	          </a>
-	          <ul class="dropdown-menu">
-				      <#list alltags as tag>
-							  <li><a class="plain" href="/${config.tag_path}/${tag}.html">${tag}</a></li>
-							</#list>
-			      </ul>
+			</a>
+			<ul class="dropdown-menu">
+			  <#list alltags as tag>
+			    <li><a class="plain" href="/${config.tag_path}/${tag}.html">${tag}</a></li>
+			  </#list>
+			</ul>
       	  </li>
-    		<#else>
-    			<li>
-            <a href="<#if (config['site_menus_main_' + menuItem1 + '_url'] != "/")> ${content.rootpath}${config['site_menus_main_' + menuItem1 + '_url']}<#else> ${config.site_host}</#if>">
-              <i class="${config['site_menus_main_' + menuItem1 + '_icon']}">&nbsp;</i>${config['site_menus_main_' + menuItem1 + '_label']}
+		<#else>
+		  <li>
+		    <a href="<#if (config['site_menus_main_' + menuItem1 + '_url'] != "/")> ${content.rootpath}${config['site_menus_main_' + menuItem1 + '_url']}<#else> ${config.site_host}</#if>">
+		      <i class="${config['site_menus_main_' + menuItem1 + '_icon']}">&nbsp;</i>${config['site_menus_main_' + menuItem1 + '_label']}
             </a>
-        	</li>
-    		</#if>
-			</#list>
+		  </li>
+		</#if>
+	  </#list>
     </ul>
   </nav>
 
@@ -63,11 +63,11 @@
       <ul class="links">
         <#list config.site_menus_main as menuItem>
           <li>
-            <a href="${config.site_host}">
+            <a href="<#if (config['site_menus_main_' + menuItem1 + '_url'] != "/")> ${content.rootpath}${config['site_menus_main_' + menuItem1 + '_url']}<#else> ${config.site_host}</#if>">
               <i class="${config['site_menus_main_' + menuItem + '_icon']}">&nbsp;</i>${config['site_menus_main_' + menuItem + '_label']}
             </a>
           </li>
-				</#list>
+		</#list>
       </ul>
     </section>
 
