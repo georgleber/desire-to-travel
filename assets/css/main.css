@@ -3945,3 +3945,8 @@ ul.pagination .button {
 .fullscreen a:hover {
 	color: #000000;
 }
+
+#map {
+	height: 300px;
+	margin-top: 50px;
+}

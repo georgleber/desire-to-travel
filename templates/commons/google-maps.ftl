@@ -1,4 +1,4 @@
-<div id="map" style="height: 300px"></div>
+<div id="map"></div>
 
 <script>
     var mapsConfig = JSON.parse(${content.mapsconfig});
