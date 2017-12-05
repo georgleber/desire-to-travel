@@ -3879,7 +3879,7 @@ ul.pagination .button {
 }
 
 .gh-gallery .gh-gallery-preview a {
-	text-decoration: none;
+	border-bottom: 0;
 }
 
 .gh-gallery .gh-gallery-preview img {
