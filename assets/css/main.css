@@ -3950,3 +3950,23 @@ ul.pagination .button {
 	height: 300px;
 	margin-top: 50px;
 }
+
+.not-found {
+	position: absolute;
+	top: 240px;
+	padding: 50px;
+}
+
+.not-found h1 {
+	color: #ffffff;
+}
+
+.not-found a.button {
+	color: #ffffff !important;
+	box-shadow: inset 0 0 0 1px #ffffff !important;
+}
+
+.not-found a.button:hover {
+	color: #8a8a8a !important;
+  box-shadow: inset 0 0 0 1px #8a8a8a !important;
+}
