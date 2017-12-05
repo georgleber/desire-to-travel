@@ -1,3 +1,5 @@
+<#assign pageType = 'tags' />
+
 <#include "header.ftl">
 
 <#include "menu.ftl">

@@ -22,33 +22,54 @@
     </header>
   </section>
 
-  <!-- Posts List -->
-  <section id="recent-posts">
-    <ul class="posts">
-      <header>
-        <h3>Aktuelle Posts</h3>
-      </header>
-  	  <#list posts as sideBarPost1>
-        <#if (sideBarPost1?counter > config.sidebar_postAmount?number) ><#break/></#if>
-        <li>
-          <article>
-            <header>
-              <h3><a href="${content.rootpath}${sideBarPost1.noExtensionUri!sideBarPost1.uri}">${sideBarPost1.title}</a></h3>
-              <time class="published" datetime='${sideBarPost1.date?string("MMM dd, yyyy")}'>${sideBarPost1.date?string("MMM dd, yyyy")}</time>
-            </header>
-          </article>
-        </li>
-      </#list>
+  <#if (pageType == 'tags')??>
+    <!-- Content List -->
+    <section id="recent-posts">
+      <ul class="posts">
+        <header>
+          <h3>Inhalt</h3>
+        </header>
+        <#list posts?reverse as sideBarPost>
+          <li>
+            <article>
+              <header>
+                <h3><a href="${content.rootpath}${sideBarPost.noExtensionUri!sideBarPost.uri}">${sideBarPost.title}</a></h3>
+                <time class="published" datetime='${sideBarPost.date?string("MMM dd, yyyy")}'>${sideBarPost.date?string("MMM dd, yyyy")}</time>
+              </header>
+            </article>
+          </li>
+        </#list>
+      </ul>
+    </section>
+  <#else>
+    <!-- Posts List -->
+    <section id="recent-posts">
+      <ul class="posts">
+        <header>
+          <h3>Aktuelle Posts</h3>
+        </header>
+    	  <#list posts as sideBarPost1>
+          <#if (sideBarPost1?counter > config.sidebar_postAmount?number) ><#break/></#if>
+          <li>
+            <article>
+              <header>
+                <h3><a href="${content.rootpath}${sideBarPost1.noExtensionUri!sideBarPost1.uri}">${sideBarPost1.title}</a></h3>
+                <time class="published" datetime='${sideBarPost1.date?string("MMM dd, yyyy")}'>${sideBarPost1.date?string("MMM dd, yyyy")}</time>
+              </header>
+            </article>
+          </li>
+        </#list>
 
-	  <#if (published_posts?size > config.sidebar_postAmount?number) >
-        <li>
-          <ul class="actions">
-            <li><a href="${content.rootpath}${config.sidebar_viewMorePostLink?has_content?then(config.sidebar_viewMorePostLink,config.archive_path)}" class="button">View more posts</a></li>
-          </ul>
-        </li>
-      </#if>
-    </ul>
-  </section>
+  	    <#if (published_posts?size > config.sidebar_postAmount?number) >
+          <li>
+            <ul class="actions">
+              <li><a href="${content.rootpath}${config.sidebar_viewMorePostLink?has_content?then(config.sidebar_viewMorePostLink,config.archive_path)}" class="button">View more posts</a></li>
+            </ul>
+          </li>
+        </#if>
+      </ul>
+    </section>
+  </#if>
 
   <!-- Tags List can be show/hide from config-->
   <#if (config.sidebar_tags_show?boolean == true)>
