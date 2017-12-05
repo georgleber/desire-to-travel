@@ -3868,15 +3868,12 @@ ul.pagination .button {
   display: -webkit-flex;
   display: flex;
   width: 100%;
-  height: 500px;
   margin-top: 30px;
   justify-content: center;
-  align-items: center;
 }
 
 .gh-gallery .gh-gallery-preview {
   margin-right: 30px;
-  max-width: 500px;
 	width: 100%;
   text-align: center;
 }
@@ -3888,7 +3885,6 @@ ul.pagination .button {
 .gh-gallery .gh-gallery-thumbs {
   max-width: 290px;
   width: 100%;
-  height: 500px;
   padding-left: 30px;
   border-left: 10px solid #D6D6D6;
   overflow-x: auto;

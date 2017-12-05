@@ -17,7 +17,7 @@ $(function() {
 			return "<div class=\"gh-gallery\">\r\n	<div class=\"gh-gallery-preview\">\r\n		<a data-featherlight=\"image\" href=\""
 				+ alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPhoto : depth0)) != null ? "https://farm" + stack1.farm + ".staticflickr.com/" + stack1.server + "/" + stack1.id + "_" + stack1.secret + "_b.jpg" : stack1), depth0))
 				+ "\"><img src=\""
-				+ alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPhoto : depth0)) != null ? stack1.url_m : stack1), depth0))
+				+ alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPhoto : depth0)) != null ? stack1.url_c : stack1), depth0))
 				+ "\" alt=\""
 				+ alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPhoto : depth0)) != null ? stack1.title : stack1), depth0))
 				+ "\"/></a>\r\n	</div>\r\n	<ul class=\"gh-gallery-thumbs\">\r\n"
@@ -31,7 +31,7 @@ $(function() {
 		Handlebars.registerHelper('thumbnail', function() {
 			var src = Handlebars.escapeExpression(this.url_sq);
 			var title = Handlebars.escapeExpression(this.title);
-			var srcM = Handlebars.escapeExpression(this.url_m);
+			var srcC = Handlebars.escapeExpression(this.url_c);
 			var id = Handlebars.escapeExpression(this.id);
 			var secret = Handlebars.escapeExpression(this.secret);
 			var server = Handlebars.escapeExpression(this.server);
@@ -39,7 +39,7 @@ $(function() {
 			var srcB = "https://farm" + farm + ".staticflickr.com/" + server + "/" + id + "_" + secret + "_b.jpg";
 
 			return new Handlebars.SafeString(
-				"<img src='" + src + "' class='img-responsive' alt='" + title + "' title='" + title + "' data-srcm='" + srcM + "' data-srcb='" + srcB + "'/>"
+				"<img src='" + src + "' class='img-responsive' alt='" + title + "' title='" + title + "' data-srcc='" + srcC + "' data-srcb='" + srcB + "'/>"
 			);
 		});
 
@@ -47,7 +47,7 @@ $(function() {
 			var photosetId = $(this).data('photoset');
 
 			$.ajax({
-				url: "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${config.site_flickr_apikey}&photoset_id=" + photosetId + "&user_id=${config.site_flickr_userid}&extras=url_sq%2C+url_m%2C+url_o&format=json&nojsoncallback=1",
+				url: "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${config.site_flickr_apikey}&photoset_id=" + photosetId + "&user_id=${config.site_flickr_userid}&extras=url_sq%2C+url_c%2C+url_o&format=json&nojsoncallback=1",
 			}).done(function(result) {
 				var template = Handlebars.templates.todo;
 				var firstPhoto = result.photoset.photo && result.photoset.photo.length > 0 ? result.photoset.photo[0] : null;
@@ -62,10 +62,10 @@ $(function() {
 			$(this).parent().siblings().find('img.active').removeClass('active');
 			$(this).addClass('active');
 
-			var srcM = $(this).data('srcm');
+			var srcC = $(this).data('srcc');
 			var srcB = $(this).data('srcb');
 			var preview = $(this).parent().parent().siblings('.gh-gallery-preview');
-			preview.find('img').attr('src', srcM);
+			preview.find('img').attr('src', srcC);
 			preview.find('a').attr('href', srcB);
 		});
 	});
