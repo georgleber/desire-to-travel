@@ -3878,6 +3878,10 @@ ul.pagination .button {
   text-align: center;
 }
 
+.gh-gallery .gh-gallery-preview a {
+	text-decoration: none;
+}
+
 .gh-gallery .gh-gallery-preview img {
 	max-height: 100%;
 }
