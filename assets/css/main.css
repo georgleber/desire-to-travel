@@ -2513,6 +2513,21 @@ dl dd {
 	}
 }
 
+.archive-post {
+	padding: 3em;
+	background: #ffffff;
+	border: solid 1px rgba(160, 160, 160, 0.3);
+	margin: 0 0 3em 0;
+	position: relative;
+	list-style: none;
+}
+
+ul.posts .archive-post li {
+    border-top: 0;
+    margin: 0;
+  	padding: 0;
+}
+
 /* Post */
 .post {
 	padding: 3em 3em 1em 3em ;
