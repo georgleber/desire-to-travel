@@ -2813,6 +2813,21 @@ ul.posts .archive-post li {
 	}
 }
 
+/* Tile */
+.tile {
+	background-color: white;
+	border: solid 1px rgba(160,160,160,.3);
+	margin-bottom: 30px;
+}
+
+.tile .image {
+	margin: 0;
+}
+
+.tile .content {
+	padding: 1em 1em 0 1em;
+}
+
 /* Section/Article */
 section.special, article.special {
 	text-align: center;

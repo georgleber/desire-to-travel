@@ -42,6 +42,18 @@
       </ul>
     </section>
   <#else>
+    <!-- Travels List -->
+    <section id="travels">
+      <ul class="posts">
+        <header>
+          <h3>Unsere Reisen</h3>
+        </header>
+        <#list alltags as tag>
+          <li><a class="plain" href="/${config.tag_path}/${tag}.html">${tag}</a></li>
+        </#list>
+      </ul>
+    </section>
+
     <!-- Posts List -->
     <section id="recent-posts">
       <ul class="posts">
