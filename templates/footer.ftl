@@ -8,19 +8,22 @@
 			<p class="copyright">
 				<a href="${config.site_host}/imprint.html" class="imprint">Impressum</a><br/>
 				&copy; ${config.site_title}<br/>
-				Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Adapted to JBake by <a href="//github.com/manikmagar" target="_blank">Manik Magar</a>. Baked with <a href="http://jbake.org" target="_blank">JBake ${version}</a>.
+				Design by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Adapted to JBake by <a href="//github.com/manikmagar" target="_blank">Manik Magar</a>. Baked with <a href="http://jbake.org" target="_blank">JBake ${version}</a>.<br/>
+				Extended by <a href="http://www.georg-henkel.de" target="_blank">Georg Henkel</a>.
 			</p>
 		</footer>
 
 		<noscript id="deferred-styles">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.7.9/featherlight.min.css" integrity="sha256-lpBLysR8pdmLZklwWA6kc+HmprKFyH6Ms8qi8ZKOchk=" crossorigin="anonymous" />
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" integrity="sha256-auPoJwk/+RK6KSkib92Dkq1Y5hEkZvKtvSwucs15Skg=" crossorigin="anonymous" />
 		</noscript>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js" integrity="sha256-0JaDbGZRXlzkFbV8Xi8ZhH/zZ6QQM0Y3dCkYZ7JYq34=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js" integrity="sha256-3e+NvOq+D/yeJy1qrWpYkEUr6SlOCL5mHpc2nZfX74E=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.7.9/featherlight.min.js" integrity="sha256-DkGoQ3CfGfUycHitDk/Kf/hIXSgPJFjBW1VZV6DmRs0=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js" integrity="sha256-DiHJ7hbvMejsMyP76bpVWacb5HSHQ2sQlrJV8n7KEvA=" crossorigin="anonymous"></script>
 		<script src="/js/main.min.js"></script>
 
 		<#if (config.site_disqus_shortname?has_content)>
