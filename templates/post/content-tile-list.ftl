@@ -1,20 +1,11 @@
-<#if cnt == 1>
-  <#assign opened = false>
+
+<#if (cnt - 1) % 3 == 0>
+  <#if cnt gt 1></div></#if>
   <div class="row">
-<#elseif cnt % 2 == 0>
-  <#assign opened = true>
-  <div class="row">
-<#else>
-  <#assign opened = false>
 </#if>
 
-<#if cnt == 1>
-  <div class="12u">
-<#else>
-  <div class="6u 12u(mobile)">
-</#if>
-
-    <article class="tile <#if cnt == 1>master</#if>" data-file="${content.rootpath}${post.noExtensionUri!post.uri}" data-target="article">
+  <div class="4u 12u(mobile)">
+    <article class="tile" data-file="${content.rootpath}${post.noExtensionUri!post.uri}" data-target="article">
       <#include "../commons/featured.ftl">
 
       <div class="content">
@@ -30,7 +21,3 @@
       </div>
     </article>
   </div>
-
-<#if opened == false>
-  </div>
-</#if>
