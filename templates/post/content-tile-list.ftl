@@ -4,7 +4,7 @@
   <div class="row">
 </#if>
 
-  <div class="4u 12u(mobile)">
+  <div class="4u 12u(small)">
     <article class="tile" data-file="${content.rootpath}${post.noExtensionUri!post.uri}" data-target="article">
       <#include "../commons/featured.ftl">
 
