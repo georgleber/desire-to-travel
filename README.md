@@ -22,7 +22,9 @@ In order to include Google Maps and show up the routes a further information mus
 - locations = An array of location objects describing the route. One entry contains name, latitude and longitude of the location in json format (e.g. {"name":"San Francisco, Kalifornien, USA","lat":37.7749295,"lng":-122.4194155}).
 
 Example of a complete entry which prints a route from San Francisco to Las Vegas:
+```json
 locations=[{"name":"San Francisco, Kalifornien, USA","lat":37.7749295,"lng":-122.4194155},{"name":"Las Vegas, Nevada, USA","lat":36.1699412,"lng":-115.1398296}]
+```
 
 The format of the post file is html, so you can use HTML markup to define the contents.
 
