@@ -29,9 +29,6 @@
 		<#if (config.site_disqus_shortname?has_content)>
 			<script id="dsq-count-scr" src="//${config.site_disqus_shortname}.disqus.com/count.js" async></script>
 		</#if>
-		<#if (config.site_google_trackingid?has_content)>
-			<#include "commons/google-analytics.ftl" />
-		</#if>
 		<#if (config.site_flickr_apikey?has_content && config.site_flickr_userid?has_content)>
 			<#include "commons/flickr.ftl">
 		</#if>

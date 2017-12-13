@@ -18,6 +18,10 @@
 
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="/img/favicon/favicon.png">
+
+    <#if (config.site_google_trackingid?has_content)>
+			<#include "commons/google-analytics.ftl" />
+		</#if>
   </head>
   <body>
     <!-- Wrapper -->
