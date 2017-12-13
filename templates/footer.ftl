@@ -4,7 +4,6 @@
     </div>
 
 		<footer id="footer">
-
 			<p class="copyright">
 				<a href="${config.site_host}/imprint.html" class="imprint">Impressum</a><br/>
 				&copy; ${config.site_title}<br/>

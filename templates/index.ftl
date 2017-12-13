@@ -10,13 +10,7 @@
 		</#if>
 	</#list>
 
-	<#list 0..2 as x>
-		<#if (cnt + x - 1) % 3 != 0>
-			<div class="4u 12u(small)"></div>
-		<#else>
-			</div>
-		</#if>
-	</#list>
+	</div>
 
 	<#include "post/prev-next.ftl">
 </div>
