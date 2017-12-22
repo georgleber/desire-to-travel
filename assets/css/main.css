@@ -2824,6 +2824,10 @@ ul.posts .archive-post li {
 	margin: 0;
 }
 
+.tile .title {
+	height: 110px;
+}
+
 .tile .content {
 	padding: 1em 1em 0 1em;
 }
