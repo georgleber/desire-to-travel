@@ -14,7 +14,8 @@
 		  <title><#escape x as x?xml>${post.title}</#escape></title>
 		  <link>${config.site_host}/${post.noExtensionUri!post.uri}</link>
 		  <pubDate>${post.date?string("EEE, d MMM yyyy HH:mm:ss Z")}</pubDate>
-		  <guid isPermaLink="false">${post.noExtensionUri!post.uri}</guid>
+      <#if post.author?? && config['site_author_' + post.author]?? ><dc:creator>${config['site_author_' + post.author]}</dc:creator></#if>
+      <guid isPermaLink="false">${post.noExtensionUri!post.uri}</guid>
 			<description>
 				<#escape x as x?xml>
 				${post.body}
