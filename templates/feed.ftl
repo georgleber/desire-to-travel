@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>Desire to Travel</title>
     <link>${config.site_host}</link>
@@ -14,7 +14,8 @@
 		  <title><#escape x as x?xml>${post.title}</#escape></title>
 		  <link>${config.site_host}/${post.noExtensionUri!post.uri}</link>
 		  <pubDate>${post.date?string("EEE, d MMM yyyy HH:mm:ss Z")}</pubDate>
-		  <guid isPermaLink="false">${post.noExtensionUri!post.uri}</guid>
+      <#if post.author?? && config['site_author_' + post.author]?? ><dc:creator><![CDATA[<#escape x as x?xml>${config['site_author_' + post.author]}</#escape>]]></dc:creator></#if>
+      <guid isPermaLink="false">${post.noExtensionUri!post.uri}</guid>
 			<description>
 				<#escape x as x?xml>
 				${post.body}
