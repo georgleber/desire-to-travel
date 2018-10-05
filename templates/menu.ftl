@@ -5,14 +5,18 @@
   <nav class="links">
     <ul>
       <#list config.site_menus_main as menuItem1>
-        <#if (config.site_menus_main_showTagsDropdown?boolean)?? == true && menuItem1 == 'tags'>
+        <#if (config.site_menus_main_showTagsDropdown?boolean)?? == true && (menuItem1 == 'tags1' || menuItem1 == 'tags2')>
           <li>
 			<a href="javascript:void(0)">
               <i class="${config['site_menus_main_' + menuItem1 + '_icon']}">&nbsp;</i>${config['site_menus_main_' + menuItem1 + '_label']}
 			</a>
 			<ul class="dropdown-menu">
 			  <#list alltags as tag>
-			    <li><a class="plain" href="/${config.tag_path}/${tag}.html">${tag}</a></li>
+			    <#if menuItem1 == 'tags1' && tag?ends_with("(travel)")>
+			        <li><a class="plain" href="/${config.tag_path}/${tag}.html">${tag?remove_ending(" (travel)")}</a></li>
+			    <#elseif menuItem1 == 'tags2' && tag?ends_with("(mountain-tour)")>
+			        <li><a class="plain" href="/${config.tag_path}/${tag}.html">${tag?remove_ending(" (mountain-tour)")}</a></li>
+			    </#if>
 			  </#list>
 			</ul>
       	  </li>
