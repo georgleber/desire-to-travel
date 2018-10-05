@@ -49,7 +49,17 @@
           <h3>Unsere Reisen</h3>
         </header>
         <#list alltags as tag>
-          <li><a class="plain" href="/${config.tag_path}/${tag}.html">${tag}</a></li>
+          <li>
+            <a class="plain" href="/${config.tag_path}/${tag}.html">
+                <#if tag?ends_with("(travel)")>
+                    ${tag?remove_ending(" (travel)")}
+                <#elseif tag?ends_with("(mountain-tour)")>
+                    ${tag?remove_ending(" (mountain-tour)")}
+                <#else>
+                    ${tag}
+                </#if>
+            </a>
+          </li>
         </#list>
       </ul>
     </section>
